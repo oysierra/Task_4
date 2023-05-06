@@ -47,15 +47,17 @@ function PilaStack() {
         return this.elementos;
     }
 
-    this.validar = function () {
-        let esPar = this.elementos[0] % 2 === 0;
-        for (let i = 1; i < this.elementos.length; i++) {
+    // Función para determinar si los elementos de la fila son pares o impares
+    this.es_par_impar = function () {
+        let esPar = true;
+        for (let i = 0; i < this.elementos.length; i++) {
             if (this.elementos[i] % 2 === 0 && esPar) {
-                return false;
+                esPar = true;
             } else if (this.elementos[i] % 2 !== 0 && !esPar) {
+                esPar = false;
+            } else {
                 return false;
             }
-            esPar = !esPar;
         }
         return true;
     }
@@ -70,5 +72,4 @@ for (let i = 0; i < longitud; i++) {
     var n = parseInt(prompt("Ingrese un elemento"));
     pila.insertar({ url: n });
 }
-
-pila.validar();
+console.log(pila.ver_elementos());
