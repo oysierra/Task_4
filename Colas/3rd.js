@@ -1,3 +1,6 @@
+// Cola-Queue
+// Lista ordenada o estructura de datos que permite almacenar y recuperar datos en orden FIFO (First In, First Out)
+
 function ColaQueue() {
     this.elementos = [];
 
@@ -30,6 +33,14 @@ function ColaQueue() {
         return this.elementos;
     }
 
+    // método para ver todos los elementos de la cola
+    this.agregar_N_elementos = function (longitud) {
+        for (let i = 0; i < longitud; i++) {
+            const elemento = parseInt(prompt(`Ingrese el elemento ${i + 1}:`));
+            this.elementos.push(elemento);
+        }
+    }
+
     this.sumar_numeros = function () {
         let suma = 0;
         for (let i = 0; i < this.elementos.length; i++) {
@@ -44,12 +55,6 @@ function ColaQueue() {
 
 const cola = new ColaQueue();
 
-var longitud = prompt("Cuantos elementos desea ingresar");
-
-for (let i = 0; i < longitud; i++) {
-    var n = parseInt(prompt("Ingrese un elemento"));
-    cola.insertar(n);
-}
-
+cola.agregar_N_elementos(5);
 console.log(cola.ver_elementos());
 cola.sumar_numeros();
