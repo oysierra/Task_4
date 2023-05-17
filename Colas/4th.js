@@ -36,6 +36,13 @@ function ColaQueue() {
         return this.elementos;
     };
 
+    this.agregar_N_elementos = function (longitud) {
+        for (let i = 0; i < longitud; i++) {
+            const elemento = parseInt(prompt(`Ingrese el elemento ${i + 1}:`));
+            this.elementos.push(elemento);
+        }
+    }
+
     this.obtener_pares = function () {
         // Creamos un arreglo vacío para almacenar los números pares
         let pares = [];
@@ -55,12 +62,6 @@ function ColaQueue() {
 
 const cola = new ColaQueue();
 
-var longitud = prompt("Cuantos elementos desea ingresar");
-
-for (let i = 0; i < longitud; i++) {
-    var n = parseInt(prompt("Ingrese un elemento"));
-    cola.insertar(n);
-}
-
+cola.agregar_N_elementos(5);
 console.log(cola.ver_elementos());
 cola.obtener_pares();
