@@ -29,14 +29,16 @@ function ColaQueue() {
     this.ver_elementos = function () {
         return this.elementos;
     }
+
+    // método para ver todos los elementos de la cola
+    this.agregar_N_elementos = function (longitud) {
+        for (let i = 0; i < longitud; i++) {
+            const elemento = prompt(`Ingrese el elemento ${i + 1}:`);
+            this.elementos.push(elemento);
+        }
+    }
 }
 
 const cola = new ColaQueue();
-var longitud = prompt("¿Cuántos elementos desea ingresar?");
-
-for (let i = 0; i < longitud; i++) {
-    var n = prompt("Ingrese un elemento");
-    cola.insertar({ url: n });
-}
-
+cola.agregar_N_elementos(5);
 console.log(cola.ver_elementos());
