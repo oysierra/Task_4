@@ -37,6 +37,14 @@ function ColaQueue() {
         return this.elementos;
     }
 
+
+    this.agregar_N_elementos = function (longitud) {
+        for (let i = 0; i < longitud; i++) {
+            const elemento = prompt(`Ingrese el elemento ${i + 1}:`);
+            this.elementos.push(elemento);
+        }
+    }
+
     // Función para determinar si los elementos de la cola son pares o impares
     this.es_par_impar = function () {
         let esPar = true;
@@ -55,11 +63,6 @@ function ColaQueue() {
 
 const cola = new ColaQueue();
 
-var longitud = prompt("Cuantos elementos desea ingresar")
-
-for (let i = 0; i < longitud; i++) {
-    var n = parseInt(prompt("Ingrese un elemento"));
-    cola.insertar({ url: n });
-}
-
+cola.agregar_N_elementos(5);
+cola.es_par_impar();
 console.log(cola.ver_elementos());
